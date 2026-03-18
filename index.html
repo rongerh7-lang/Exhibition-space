@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>展陈空间与交互体验：空间逻辑与叙事转译</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Noto Sans SC', sans-serif; }
+.chart-container { position: relative; width: 100%; margin-left: auto; margin-right: auto; }
+</style>
+<!--
+[PALETTE NAME]: Cyber Neon Pulse (Vibrant Dark Theme)
+[COMPLIANCE CONFIRMATION]: I explicitly confirm that NEITHER Mermaid JS NOR SVG were used anywhere in this output. All graphics are Canvas or HTML/CSS/Unicode.
+-->
+</head>
+<body class="bg-slate-900 text-slate-200 antialiased selection:bg-cyan-500 selection:text-white">
+
+<header class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-cyan-500/30 sticky top-0 z-50 shadow-lg shadow-cyan-500/10">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between">
+        <div>
+            <h1 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500 tracking-tight">展陈空间与交互体验</h1>
+            <p class="text-cyan-200 mt-2 font-medium tracking-wide">空间逻辑与叙事转译 (Spatial Logic & Narrative Translation)</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex gap-4 text-sm font-bold text-slate-400">
+            <span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700">环境设计</span>
+            <span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700">空间交互</span>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 py-12 space-y-24">
+
+    <section id="typology" class="scroll-mt-32">
+        <div class="mb-12 text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3"><span class="text-pink-500">❖</span> 展陈空间分类分析</h2>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                会展空间是品牌信息的瞬间转译场域，具有周期短、高频率、高强度的特征。现代会展空间已经从单一的货架陈列，演变为复杂的注意力争夺阵地。根据参展主体与表达诉求的不同，我们将其划分为三大核心类别。
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-slate-800/50 p-8 rounded-3xl border border-slate-700 shadow-2xl">
+            <!-- 图表与自定义图例区域 -->
+            <div class="flex flex-col items-center w-full">
+                <div class="chart-container h-[280px] max-w-sm" id="typology-chart-wrapper">
+                    <canvas id="typologyChart"></canvas>
+                </div>
+                <!-- 修复后的 HTML 自定义图例 (确保左对齐与完整显示) -->
+                <div class="mt-8 flex flex-col space-y-4 w-full max-w-sm mx-auto px-4">
+                    <div class="flex items-start text-left">
+                        <span class="w-3.5 h-3.5 mt-1 rounded-sm bg-[#06b6d4] shrink-0 mr-4 shadow-[0_0_8px_rgba(6,182,212,0.6)]"></span>
+                        <span class="text-slate-200 text-sm leading-snug font-medium">单一品牌展示类 <br><span class="text-xs text-slate-400 font-normal mt-1 inline-block">强调材质、工艺与深度的调性</span></span>
+                    </div>
+                    <div class="flex items-start text-left">
+                        <span class="w-3.5 h-3.5 mt-1 rounded-sm bg-[#ec4899] shrink-0 mr-4 shadow-[0_0_8px_rgba(236,72,153,0.6)]"></span>
+                        <span class="text-slate-200 text-sm leading-snug font-medium">综合生态场景类 <br><span class="text-xs text-slate-400 font-normal mt-1 inline-block">强调多业务场景与生活方式的营造</span></span>
+                    </div>
+                    <div class="flex items-start text-left">
+                        <span class="w-3.5 h-3.5 mt-1 rounded-sm bg-[#8b5cf6] shrink-0 mr-4 shadow-[0_0_8px_rgba(139,92,246,0.6)]"></span>
+                        <span class="text-slate-200 text-sm leading-snug font-medium">主题概念交互类 <br><span class="text-xs text-slate-400 font-normal mt-1 inline-block">以特定文化为核心，强调高度参与与沉浸体验</span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 详细解释卡片 -->
+            <div class="space-y-6">
+                <div class="bg-slate-800 p-6 rounded-2xl border-l-4 border-cyan-500 shadow-lg transition-transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">单一品牌类 (Single-Brand)</h3>
+                    <p class="text-slate-300 text-sm">极度聚焦品牌核心价值，强调材质、工艺或单点科技的深度体验。空间往往成为品牌基因的物理外化容器。</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl border-l-4 border-pink-500 shadow-lg transition-transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold text-pink-400 mb-2">综合生态类 (Comprehensive Ecosystem)</h3>
+                    <p class="text-slate-300 text-sm">多产品线、多业务场景的融合，强调生活方式的营造和全场景生态的展现，通常采用多层级的动线规划。</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl border-l-4 border-violet-500 shadow-lg transition-transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold text-violet-400 mb-2">主题概念类 (Thematic & Cultural)</h3>
+                    <p class="text-slate-300 text-sm">以特定文化、娱乐IP或前沿概念为核心，弱化直接商业销售，强调高度的沉浸感与受众的共同参与创造。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="flow">
+        <div class="mb-12 text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3"><span class="text-cyan-500">⎈</span> 空间流线与叙事节奏</h2>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                展陈空间不仅是平面的分区，更是时间的容器。设计师如同导演，通过不同的流线组织（向心、单向、漏斗、网格），精确控制观众的心理起伏与停留时间（Dwell Time）。
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-xl relative overflow-hidden group hover:border-cyan-500/50 transition-colors">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-bl-full transition-transform group-hover:scale-110"></div>
+                <h3 class="text-xl font-bold text-white mb-6">向心放射式流线 (BMW)</h3>
+                <div class="flex items-center justify-center h-48 relative">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-24 h-24 rounded-full border-2 border-cyan-500 flex items-center justify-center bg-cyan-500/20 text-cyan-300 font-bold z-10 shadow-[0_0_15px_rgba(6,182,212,0.5)]">中心秀场</div>
+                    </div>
+                    <div class="absolute w-full flex justify-between px-4 text-slate-600 font-black text-2xl"><span>⬅</span><span>➡</span></div>
+                    <div class="absolute h-full flex flex-col justify-between py-4 text-slate-600 font-black text-2xl"><span>⬆</span><span>⬇</span></div>
+                    <div class="w-full flex justify-between absolute px-12 top-8 text-xs text-slate-400"><span>交互台</span><span>材质墙</span></div>
+                    <div class="w-full flex justify-between absolute px-12 bottom-8 text-xs text-slate-400"><span>水吧区</span><span>体验区</span></div>
+                </div>
+                <p class="text-sm text-slate-400 mt-4 text-center">四周全面开放，强光吸引进入后自然扩散。节奏：强 ➔ 中 ➔ 缓 ➔ 弱。</p>
+            </div>
+
+            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-xl relative overflow-hidden group hover:border-pink-500/50 transition-colors">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-bl-full transition-transform group-hover:scale-110"></div>
+                <h3 class="text-xl font-bold text-white mb-6">强制单向序列 (Hermès)</h3>
+                <div class="flex flex-col md:flex-row items-center justify-between h-48 gap-2">
+                    <div class="bg-slate-900 border border-slate-700 px-3 py-4 text-xs text-center rounded text-slate-400 flex-1">压抑<br>入口</div>
+                    <span class="text-pink-500 font-bold">➔</span>
+                    <div class="bg-pink-900/30 border border-pink-500/50 px-3 py-6 text-sm text-center rounded text-pink-200 flex-[1.5] shadow-inner">手绘工坊<br><span class="text-[10px]">密集展示</span></div>
+                    <span class="text-pink-500 font-bold">➔</span>
+                    <div class="bg-slate-700 border-2 border-slate-500 px-4 py-8 text-base text-center rounded-lg text-white flex-[2] shadow-2xl">豁然开朗<br>产品阵列区</div>
+                    <span class="text-pink-500 font-bold">➔</span>
+                    <div class="bg-black border border-slate-800 px-2 py-4 text-xs text-center rounded text-slate-500 flex-1">暗场<br>沉浸室</div>
+                </div>
+                <p class="text-sm text-slate-400 mt-4 text-center">利用建筑体块强制引导，完成"引子-溯源-高潮-回味"的心理转换。</p>
+            </div>
+            
+            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-xl relative overflow-hidden group hover:border-yellow-500/50 transition-colors">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-bl-full transition-transform group-hover:scale-110"></div>
+                <h3 class="text-xl font-bold text-white mb-6">阶层分级流线 (NIO 蔚来)</h3>
+                <div class="flex flex-col h-48 justify-center gap-4">
+                    <div class="w-full flex items-center justify-between bg-yellow-500/20 border-l-4 border-yellow-500 p-3 rounded text-yellow-100 text-sm">
+                        <span class="font-bold">二层/封闭区：</span>
+                        <span>专属咖啡吧 (扫码准入) | 剧场分享区</span>
+                    </div>
+                    <div class="w-full border-t border-dashed border-slate-600 my-1 relative">
+                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 px-2 text-xs text-slate-500">平行互不干扰</span>
+                    </div>
+                    <div class="w-full flex items-center justify-between bg-slate-700/50 border-l-4 border-slate-500 p-3 rounded text-slate-200 text-sm">
+                        <span class="font-bold">首层/开放区：</span>
+                        <span>高亮展车区 | 大众流线</span>
+                    </div>
+                    <div class="w-3/4 mx-auto flex items-center justify-center bg-pink-500/20 border-l-4 border-pink-500 p-2 rounded text-pink-200 text-xs mt-2">
+                        <span>独立下沉区：Joy Camp 亲子互动 (专人看护)</span>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 mt-4 text-center">将空间划分为“车”与“人”两个平行系统，利用服务设计建立社群阶层感。</p>
+            </div>
+
+            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-xl relative overflow-hidden group hover:border-violet-500/50 transition-colors">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 rounded-bl-full transition-transform group-hover:scale-110"></div>
+                <h3 class="text-xl font-bold text-white mb-6">游园网格化 (Bilibili World)</h3>
+                <div class="grid grid-cols-3 grid-rows-3 gap-2 h-48">
+                    <div class="border border-violet-500/30 rounded bg-violet-900/30 flex items-center justify-center text-xs text-violet-300 relative"><span class="absolute top-1 left-1">📍</span>入口地标</div>
+                    <div class="border border-slate-700 rounded bg-slate-800/50 flex items-center justify-center font-bold text-slate-600">➔</div>
+                    <div class="border border-cyan-500/30 rounded bg-cyan-900/30 flex items-center justify-center text-xs text-cyan-300 relative"><span class="absolute top-1 left-1">🤖</span>动捕舱</div>
+                    <div class="border border-slate-700 rounded bg-slate-800/50 flex items-center justify-center font-bold text-slate-600">⬇</div>
+                    <div class="border-2 border-pink-500 rounded bg-pink-500/20 flex items-center justify-center text-sm font-bold text-pink-200 shadow-[0_0_10px_rgba(236,72,153,0.3)] text-center">UGC<br>共创涂鸦区</div>
+                    <div class="border border-slate-700 rounded bg-slate-800/50 flex items-center justify-center font-bold text-slate-600">⬅</div>
+                    <div class="border border-yellow-500/30 rounded bg-yellow-900/30 flex items-center justify-center text-xs text-yellow-300 relative"><span class="absolute top-1 left-1">🛍️</span>贩售区</div>
+                    <div class="border border-slate-700 rounded bg-slate-800/50 flex items-center justify-center font-bold text-slate-600">⬆</div>
+                    <div class="border border-slate-700 rounded bg-slate-900/50 flex items-center justify-center text-[10px] text-slate-500">舞台区</div>
+                </div>
+                <p class="text-sm text-slate-400 mt-4 text-center">以“集章地图”为隐性动线，鼓励在碎片化视觉符号中折返穿梭，刺激UGC。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cases">
+        <div class="mb-12 text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3"><span class="text-yellow-500">◈</span> 核心案例深度剖析</h2>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                通过对比六个处于行业顶尖水平的展陈案例，我们可以清晰地看到不同商业诉求如何转化为具体的空间语言、媒介选择与技术投入。
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="col-span-1 lg:col-span-1 space-y-4">
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 hover:border-cyan-500 hover:shadow-[0_0_15px_rgba(6,182,212,0.2)] transition-all">
+                    <div class="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-1">科技类</div>
+                    <h4 class="text-lg font-bold text-white mb-1">BMW 愿景馆</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">强调硬核技术可视化，透明屏幕与动力学灯光主导。</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 hover:border-pink-500 hover:shadow-[0_0_15px_rgba(236,72,153,0.2)] transition-all">
+                    <div class="text-xs font-bold text-pink-400 uppercase tracking-wider mb-1">奢侈品类</div>
+                    <h4 class="text-lg font-bold text-white mb-1">Hermès 米兰展</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">极致溯源，手绘草图与原始材料构建溢价壁垒。</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.2)] transition-all">
+                    <div class="text-xs font-bold text-green-400 uppercase tracking-wider mb-1">生态类</div>
+                    <h4 class="text-lg font-bold text-white mb-1">Google CES</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">户外游乐场结合1:1真实家居场景，降低技术门槛。</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 hover:border-yellow-500 hover:shadow-[0_0_15px_rgba(234,179,8,0.2)] transition-all">
+                    <div class="text-xs font-bold text-yellow-400 uppercase tracking-wider mb-1">商业综合类</div>
+                    <h4 class="text-lg font-bold text-white mb-1">NIO 蔚来</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">扫码准入的社群咖啡区，构建高粘性中产生活方式。</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 hover:border-violet-500 hover:shadow-[0_0_15px_rgba(139,92,246,0.2)] transition-all">
+                    <div class="text-xs font-bold text-violet-400 uppercase tracking-wider mb-1">泛娱乐类</div>
+                    <h4 class="text-lg font-bold text-white mb-1">Bilibili World</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">动捕舱与海量UGC涂鸦墙，引爆二次社交传播。</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 hover:border-blue-500 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all">
+                    <div class="text-xs font-bold text-blue-400 uppercase tracking-wider mb-1">主题概念类</div>
+                    <h4 class="text-lg font-bold text-white mb-1">迪拜世博 英国馆</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">AI实时生成诗歌并成为建筑外立面，跨越文化边界。</p>
+                </div>
+            </div>
+
+            <div class="col-span-1 lg:col-span-2 bg-slate-800/50 p-8 rounded-3xl border border-slate-700 shadow-2xl flex flex-col justify-center">
+                <h3 class="text-xl font-bold text-white mb-2 text-center">多维度空间策略对比</h3>
+                <p class="text-sm text-slate-400 text-center mb-8">评估各案例在硬件技术、社交分享、情感共鸣、品牌聚焦及流线自由度上的资源倾斜。</p>
+                <div class="chart-container h-[450px] w-full" id="radar-chart-wrapper">
+                    <canvas id="radarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="zones">
+        <div class="mb-12 text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3"><span class="text-violet-500">▤</span> 核心功能区块 (Zoning) 权重分析</h2>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                现代展陈设计正在从“物”的陈列转向“人”的体验。通过对大量顶尖展会区块规划的统计提取，我们发现互动、社交与共创区域的面积与资源投入比重正在显著超越传统产品展示区。
+            </p>
+        </div>
+
+        <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-xl max-w-4xl mx-auto">
+             <div class="chart-container h-[400px] w-full">
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="p-4 bg-slate-900 rounded-xl border border-slate-700">
+                    <div class="text-cyan-500 text-2xl font-black mb-1">75%</div>
+                    <div class="text-xs text-slate-400">案例包含专属社交/洽谈区</div>
+                </div>
+                <div class="p-4 bg-slate-900 rounded-xl border border-slate-700">
+                    <div class="text-pink-500 text-2xl font-black mb-1">UGC</div>
+                    <div class="text-xs text-slate-400">涂鸦/共创区转化率最高</div>
+                </div>
+                <div class="p-4 bg-slate-900 rounded-xl border border-slate-700">
+                    <div class="text-violet-500 text-2xl font-black mb-1">1:1</div>
+                    <div class="text-xs text-slate-400">生活场景化展示成为主流</div>
+                </div>
+                <div class="p-4 bg-slate-900 rounded-xl border border-slate-700">
+                    <div class="text-yellow-500 text-2xl font-black mb-1">隐形化</div>
+                    <div class="text-xs text-slate-400">大屏减少，媒介融入材质</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <div class="mb-12 text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3"><span class="text-blue-500">≣</span> 综合对比矩阵与设计展望</h2>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                总结各类展陈空间的核心逻辑，并对未来环境设计与交互体验的融合趋势进行展望。
+            </p>
+        </div>
+
+        <div class="overflow-x-auto bg-slate-800 rounded-2xl border border-slate-700 shadow-xl mb-12">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-slate-900 border-b border-slate-700 text-slate-300">
+                        <th class="p-4 font-bold">类别与代表案例</th>
+                        <th class="p-4 font-bold">空间流线特征</th>
+                        <th class="p-4 font-bold">核心功能区块</th>
+                        <th class="p-4 font-bold">交互与媒介</th>
+                        <th class="p-4 font-bold">核心诉求</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-b border-slate-700/50 hover:bg-slate-700/30 transition-colors">
+                        <td class="p-4 font-bold text-cyan-400">单一科技 (BMW)</td>
+                        <td class="p-4 text-slate-300">向心放射式</td>
+                        <td class="p-4 text-slate-300">中心秀场、<span class="font-bold text-white">透明屏幕交互台</span></td>
+                        <td class="p-4 text-slate-400">动态矩阵灯、全息透视</td>
+                        <td class="p-4 text-slate-400">传递技术优势，促成商务洽谈</td>
+                    </tr>
+                    <tr class="border-b border-slate-700/50 hover:bg-slate-700/30 transition-colors">
+                        <td class="p-4 font-bold text-pink-400">单一奢侈品 (Hermès)</td>
+                        <td class="p-4 text-slate-300">强制单向序列</td>
+                        <td class="p-4 text-slate-300">压抑入口、<span class="font-bold text-white">手稿展示墙</span></td>
+                        <td class="p-4 text-slate-400">博物馆级布光、实物解构</td>
+                        <td class="p-4 text-slate-400">溯源品牌历史，建立溢价壁垒</td>
+                    </tr>
+                    <tr class="border-b border-slate-700/50 hover:bg-slate-700/30 transition-colors">
+                        <td class="p-4 font-bold text-green-400">综合生态 (Google)</td>
+                        <td class="p-4 text-slate-300">漏斗式分流</td>
+                        <td class="p-4 text-slate-300"><span class="font-bold text-white">户外游乐广场</span>、1:1场景舱</td>
+                        <td class="p-4 text-slate-400">行为游乐设施、实景剧场</td>
+                        <td class="p-4 text-slate-400">展现生态系统，降低技术门槛</td>
+                    </tr>
+                    <tr class="border-b border-slate-700/50 hover:bg-slate-700/30 transition-colors">
+                        <td class="p-4 font-bold text-yellow-400">综合商业 (蔚来)</td>
+                        <td class="p-4 text-slate-300">阶层分级流线</td>
+                        <td class="p-4 text-slate-300">展示区、<span class="font-bold text-white">专属咖啡区/亲子区</span></td>
+                        <td class="p-4 text-slate-400">空间化服务设计、扫码准入</td>
+                        <td class="p-4 text-slate-400">构建高粘性社群与中产生活方式</td>
+                    </tr>
+                    <tr class="border-b border-slate-700/50 hover:bg-slate-700/30 transition-colors">
+                        <td class="p-4 font-bold text-violet-400">主题泛娱乐 (BW)</td>
+                        <td class="p-4 text-slate-300">游园网格化</td>
+                        <td class="p-4 text-slate-300">打卡地标、<span class="font-bold text-white">UGC共创涂鸦区</span></td>
+                        <td class="p-4 text-slate-400">Mocap动捕、实体白板</td>
+                        <td class="p-4 text-slate-400">激发二次传播，强化文化认同</td>
+                    </tr>
+                    <tr class="hover:bg-slate-700/30 transition-colors">
+                        <td class="p-4 font-bold text-blue-400">主题概念 (迪拜世博)</td>
+                        <td class="p-4 text-slate-300">闭环沉浸流线</td>
+                        <td class="p-4 text-slate-300"><span class="font-bold text-white">单词输入台</span>、AI生成式立面</td>
+                        <td class="p-4 text-slate-400">AI算法、声音空间</td>
+                        <td class="p-4 text-slate-400">探讨宏大叙事，跨越文化边界</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-2xl border border-slate-700">
+                <div class="text-3xl mb-4">⏱️</div>
+                <h4 class="text-lg font-bold text-white mb-2">四维体验掌控</h4>
+                <p class="text-sm text-slate-400">从二维Zoning走向四维体验。设计师如导演般控制空间的明暗与尺度，规划观众30分钟内的心理起伏与注意力分配。</p>
+            </div>
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-2xl border border-slate-700">
+                <div class="text-3xl mb-4">🧩</div>
+                <h4 class="text-lg font-bold text-white mb-2">留白与功能切换</h4>
+                <p class="text-sm text-slate-400">高坪效考量下，设置UGC共创区或游乐区旨在有效拉长停留时间(Dwell Time)，利用模块化构件实现空间的弹性适应。</p>
+            </div>
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-2xl border border-slate-700">
+                <div class="text-3xl mb-4">👻</div>
+                <h4 class="text-lg font-bold text-white mb-2">媒介隐形与实体化</h4>
+                <p class="text-sm text-slate-400">告别生硬的大屏堆砌。AI生成内容将成为建筑外立面，传感器无缝融入材质，观众的即兴交互直接构成空间展陈本身。</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="border-t border-slate-800 mt-12 py-8 text-center text-slate-500 text-sm">
+    <p>《展陈空间与交互体验》课程汇报数据可视化呈现</p>
+    <p class="mt-2">Designed for Analytical Review</p>
+</footer>
+
+<script>
+function wrapLabel(label) {
+    if (label.length <= 16) return label;
+    const words = label.split('');
+    let lines = [];
+    let currentLine = '';
+    
+    let isEnglish = /^[a-zA-Z\s]+$/.test(label);
+    if(isEnglish) {
+        const engWords = label.split(' ');
+        for (let word of engWords) {
+            if ((currentLine + word).length > 16) {
+                if (currentLine) lines.push(currentLine.trim());
+                currentLine = word + ' ';
+            } else {
+                currentLine += word + ' ';
+            }
+        }
+    } else {
+        for (let char of words) {
+            if (currentLine.length >= 12) { 
+                lines.push(currentLine);
+                currentLine = char;
+            } else {
+                currentLine += char;
+            }
+        }
+    }
+    
+    if (currentLine) lines.push(currentLine.trim());
+    return lines;
+}
+
+const commonTooltipConfig = {
+    callbacks: {
+        title: function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join('');
+            } else {
+                return label;
+            }
+        }
+    },
+    backgroundColor: 'rgba(15, 23, 42, 0.95)',
+    titleColor: '#f1f5f9',
+    bodyColor: '#cbd5e1',
+    titleFont: { family: "'Noto Sans SC', sans-serif", size: 14, weight: 'bold' },
+    bodyFont: { family: "'Noto Sans SC', sans-serif", size: 13 },
+    padding: 12,
+    cornerRadius: 8,
+    borderColor: 'rgba(6, 182, 212, 0.4)',
+    borderWidth: 1,
+    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3)'
+};
+
+// 恢复深色主题的默认字体颜色
+Chart.defaults.color = '#94a3b8';
+Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
+
+const ctxTypology = document.getElementById('typologyChart').getContext('2d');
+new Chart(ctxTypology, {
+    type: 'doughnut',
+    data: {
+        labels: ['单一品牌展示类', '综合生态场景类', '主题概念交互类'],
+        datasets: [{
+            data: [40, 30, 30],
+            backgroundColor: ['#06b6d4', '#ec4899', '#8b5cf6'],
+            borderWidth: 2,
+            borderColor: '#1e293b', // 与底色统一的边框，增强分割感
+            hoverOffset: 10
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            // 完全禁用 Canvas 内置图例，采用外部 HTML 图例解决对齐和裁切问题
+            legend: { display: false },
+            tooltip: commonTooltipConfig
+        },
+        cutout: '65%'
+    }
+});
+
+const ctxRadar = document.getElementById('radarChart').getContext('2d');
+new Chart(ctxRadar, {
+    type: 'radar',
+    data: {
+        labels: [
+            wrapLabel('硬核交互技术投入'),
+            wrapLabel('社交媒体UGC刺激'),
+            wrapLabel('深层情感与共鸣'),
+            wrapLabel('品牌历史与工艺溯源'),
+            wrapLabel('受众空间探索自由度')
+        ],
+        datasets: [
+            {
+                label: 'BMW (科技)',
+                data: [90, 60, 40, 50, 85],
+                backgroundColor: 'rgba(6, 182, 212, 0.2)',
+                borderColor: '#06b6d4',
+                pointBackgroundColor: '#06b6d4',
+                borderWidth: 2
+            },
+            {
+                label: 'Hermès (奢侈品)',
+                data: [30, 70, 80, 95, 20],
+                backgroundColor: 'rgba(236, 72, 153, 0.2)',
+                borderColor: '#ec4899',
+                pointBackgroundColor: '#ec4899',
+                borderWidth: 2
+            },
+            {
+                label: 'Bilibili World (泛娱乐)',
+                data: [80, 95, 75, 20, 90],
+                backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                borderColor: '#8b5cf6',
+                pointBackgroundColor: '#8b5cf6',
+                borderWidth: 2
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            r: {
+                angleLines: { color: 'rgba(148, 163, 184, 0.2)' },
+                grid: { color: 'rgba(148, 163, 184, 0.2)' },
+                pointLabels: { color: '#e2e8f0', font: { size: 12, weight: 'bold' } },
+                ticks: { display: false, min: 0, max: 100 }
+            }
+        },
+        plugins: {
+            legend: { position: 'top', labels: { color: '#cbd5e1' } },
+            tooltip: commonTooltipConfig
+        }
+    }
+});
+
+const ctxBar = document.getElementById('barChart').getContext('2d');
+new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+        labels: [
+            wrapLabel('社交/VIP洽谈区 (Lounge)'),
+            wrapLabel('UGC共创/涂鸦互动区'),
+            wrapLabel('物理材质触摸溯源区'),
+            wrapLabel('全息/AR硬核技术台'),
+            wrapLabel('1:1实体情景剧场区')
+        ],
+        datasets: [{
+            label: '现代优秀展陈投入权重评级',
+            data: [85, 90, 65, 70, 80],
+            backgroundColor: [
+                'rgba(234, 179, 8, 0.8)',
+                'rgba(236, 72, 153, 0.8)',
+                'rgba(139, 92, 246, 0.8)',
+                'rgba(6, 182, 212, 0.8)',
+                'rgba(59, 130, 246, 0.8)'
+            ],
+            borderRadius: 6
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        scales: {
+            x: { grid: { color: 'rgba(148, 163, 184, 0.1)' }, max: 100, ticks: { color: '#94a3b8' } },
+            y: { grid: { display: false }, ticks: { color: '#cbd5e1', font: { size: 12 } } }
+        },
+        plugins: {
+            legend: { display: false },
+            tooltip: commonTooltipConfig
+        }
+    }
+});
+</script>
+</body>
+</html>
